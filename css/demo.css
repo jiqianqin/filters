@@ -1,0 +1,119 @@
+﻿/*----------------------------------------------*/
+/*                                              */
+/*                唐明明☀20150724               */
+/*                                              */
+/*----------------------------------------------*/
+
+body{
+    margin: 0;
+    padding: 0;
+    color: #333;
+    font-size:62.5%;
+    background: #ededed;
+    font-family: Microsoft YaHei;
+}
+
+/* screening */
+div.screening{
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+    position: fixed;
+    z-index: 4;
+}
+div.screening>ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border-bottom: solid 1px #d3d3d3;
+    overflow: hidden;
+}
+div.screening>ul>li{
+    float: left;
+    width: 33%;
+    text-align: center;
+    line-height: 3rem;
+    border-left: solid 1px #d3d3d3;
+    background: url("../images/on_1.png") no-repeat 85% center;
+}
+/* grade */
+.grade-eject,.Category-eject,.Sort-eject{
+    position:fixed;
+    top: -65%;
+    width: 100%;
+    height: 65%;
+    z-index: 1;
+    -webkit-transition-duration: 0.4s;
+}
+
+.grade-eject>ul,.Category-eject>ul,.Sort-eject>ul{
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    -webkit-transition-duration: 0.4s;
+}
+.grade-eject>ul>li,.Category-eject>ul>li,.Sort-eject>ul>li{
+    line-height: 3rem;
+    font-size: 0.12rem;
+    padding-left: 1rem;
+    border-bottom: solid 1px #eee;
+}
+.grade-eject>ul.grade-w,.Category-eject>ul.Category-w{
+    background: #ddd;
+    position: absolute;
+    z-index: 1;
+}
+.grade-eject>ul.grade-t,.Category-eject>ul.Category-t{
+    background: #eee;
+    position: absolute;
+    z-index: 2;
+    left: 100%;
+}
+.grade-eject>ul.grade-t>li,.Category-eject>ul.Category-t>li{
+    border-bottom: solid 1px #fff;
+}
+.grade-eject>ul.grade-s,.Category-eject>ul.Category-s{
+    background: #fff;
+    position: absolute;
+    z-index: 3;
+    left: 100%;
+    list-style-type: none;
+}
+.grade-eject>ul.grade-s>li,.Category-eject>ul.Category-s>li{
+    border-bottom: solid 1px #eee;
+    margin-left: 1rem;
+    padding: 0;
+}
+.grade-w-roll{
+top: 3rem;
+}
+.grade-w-roll::after{
+    position: fixed;
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    background:rgba(0,0,0,0.2);
+    top: 0;
+}
+/*Sort-eject*/
+.Sort-Sort{
+    background: #fff;
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    list-style-type: none;
+}
+.Sort-Sort>li{
+    border-bottom: solid 1px #eee;
+    padding: 0;
+}
+.Sort-height{
+    height: 343px;
+}
+
+/* demo-content */
+.demo-content{padding-top: 3rem;}
+
