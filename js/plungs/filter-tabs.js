@@ -1,9 +1,6 @@
 /**
  * Created by qinwen on 17/2/10.
  */
-/**
- * Created by qinwen on 16/12/8.
- *///
 ;(function($,window,document,undefined){
     var pluginName = "filterTabs";
     var defaults = {

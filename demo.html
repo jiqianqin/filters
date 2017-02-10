@@ -13,111 +13,24 @@
     <link type="text/css" rel="stylesheet" href="css/demo.css">
     <script src="js/jquery-1.8.2.min.js"></script>
     <script src="js/plungs/filter-tabs.js"></script>
-
+    <script src="js/plungs/filter-grade.js"></script>
     <script src="js/demo.js"></script>
 </head>
 <body>
 
 <div class="filter-tabs-screening"></div>
-<!-- grade -->
-<div class="grade-eject">
-    <ul class="grade-first" id="gradew">
-        <li onclick="gradeFirst(this)">全部</li>
-        <li onclick="gradeFirst(this)">长宁</li>
-        <li onclick="gradeFirst(this)">徐汇</li>
-        <li onclick="gradeFirst(this)">普陀</li>
-        <li onclick="gradeFirst(this)">浦东</li>
-        <li onclick="gradeFirst(this)">宝山</li>
-        <li onclick="gradeFirst(this)">闵行</li>
-    </ul>
-    <ul class="grade-second" id="gradet">
-        <li onclick="gradeSecond(this)">全部</li>
-        <li onclick="gradeSecond(this)">北新泾</li>
-        <li onclick="gradeSecond(this)">天山</li>
-        <li onclick="gradeSecond(this)">古北</li>
-        <li onclick="gradeSecond(this)">虹桥</li>
-        <li onclick="gradeSecond(this)">西郊</li>
-        <li onclick="gradeSecond(this)">仙霞</li>
-    </ul>
-    <ul class="grade-third" id="grades">
-        <li onclick="gradeThird(this)">1</li>
-        <li onclick="gradeThird(this)">2</li>
-        <li onclick="gradeThird(this)">3</li>
-        <li onclick="gradeThird(this)">4</li>
-        <li onclick="gradeThird(this)">5</li>
-        <li onclick="gradeThird(this)">6</li>
-        <li onclick="gradeThird(this)">7</li>
-        <li onclick="gradeThird(this)">8</li>
-        <li onclick="gradeThird(this)">9</li>
-        <li onclick="gradeThird(this)">10</li>
+<!-- 区域 -->
+<div class="filter-tabs-content filter-content-area filter-tabs-grade" id="areaFilter"></div>
+<!-- 总价 -->
+<div class="filter-tabs-content filter-content-price filter-tabs-sigle Sort-eject Sort-height"  id="priceFilter">
+    <ul class="filter-sigle-content" id="Sort-Sort">
+        <li onclick="Sorts(this)">全部</li>
+        <li onclick="Sorts(this)">100万-200万</li>
+        <li onclick="Sorts(this)">200万-300万</li>
+        <li onclick="Sorts(this)">300万-400万</li>
     </ul>
 </div>
-<!-- End grade -->
-<!-- Category -->
-<div class="Category-eject">
-    <ul class="Category-w" id="Categorytw">
-        <li onclick="Categorytw(this)">全部品牌</li>
-        <li onclick="Categorytw(this)">奥迪</li>
-        <li onclick="Categorytw(this)">丰田</li>
-        <li onclick="Categorytw(this)">本田</li>
-        <li onclick="Categorytw(this)">大众</li>
-        <li onclick="Categorytw(this)">别克</li>
-        <li onclick="Categorytw(this)">标志</li>
-        <li onclick="Categorytw(this)">东风悦达起亚</li>
-        <li onclick="Categorytw(this)">东风</li>
-        <li onclick="Categorytw(this)">奔驰</li>
-        <li onclick="Categorytw(this)">玛莎拉蒂</li>
-        <li onclick="Categorytw(this)">保时捷</li>
-        <li onclick="Categorytw(this)">广汽传祺</li>
-    </ul>
-    <ul class="Category-t" id="Categoryt">
-        <li onclick="Categoryt(this)">奥迪A6</li>
-        <li onclick="Categoryt(this)">奥迪A6L</li>
-        <li onclick="Categoryt(this)">奥迪A4</li>
-        <li onclick="Categoryt(this)">奥迪A4L</li>
-        <li onclick="Categoryt(this)">奥迪A5</li>
-        <li onclick="Categoryt(this)">奥迪A8</li>
-        <li onclick="Categoryt(this)">奥迪A8L</li>
-        <li onclick="Categoryt(this)">奥迪A3</li>
-        <li onclick="Categoryt(this)">奥迪Q5</li>
-        <li onclick="Categoryt(this)">奥迪Q7</li>
-        <li onclick="Categoryt(this)">奥迪TT</li>
-        <li onclick="Categoryt(this)">奥迪R8</li>
-    </ul>
-    <ul class="Category-s" id="Categorys">
-        <li onclick="Categorys(this)">发动机(/进排气系统/燃油系统/冷却系统等)</li>
-        <li onclick="Categorys(this)">变速箱</li>
-        <li onclick="Categorys(this)">离合器</li>
-        <li onclick="Categorys(this)">转向</li>
-        <li onclick="Categorys(this)">制动</li>
-        <li onclick="Categorys(this)">传动/前后桥</li>
-        <li onclick="Categorys(this)">悬挂/车架/车厢</li>
-        <li onclick="Categorys(this)">轮胎/钢圈/轮毂</li>
-        <li onclick="Categorys(this)">暖风/柴暖/空调系统</li>
-        <li onclick="Categorys(this)">汽车电器/电子/传感器</li>
-        <li onclick="Categorys(this)">汽车电脑/电子控制单元系统</li>
-        <li onclick="Categorys(this)">汽车光电/汽车影音/电子防盗系统</li>
-        <li onclick="Categorys(this)">驾驶室/装饰件</li>
-        <li onclick="Categorys(this)">轴承/密封件/橡胶件/标准件</li>
-        <li onclick="Categorys(this)">汽车润滑/油/脂/液/汽车用品</li>
-        <li onclick="Categorys(this)">汽保工具/设备工具/维修设备</li>
-        <li onclick="Categorys(this)">液压件/齿轮齿件/挂车/工程机专用件</li>
-        <li onclick="Categorys(this)">其他</li>
-    </ul>
-</div>
-<!-- End Category -->
-<!-- Category -->
-<div class="Sort-eject Sort-height">
-    <ul class="Sort-Sort" id="Sort-Sort">
-        <li onclick="Sorts(this)">智能排序</li>
-        <li onclick="Sorts(this)">离我最近</li>
-        <li onclick="Sorts(this)">好评优先</li>
-        <li onclick="Sorts(this)">最新发布</li>
-        <li onclick="Sorts(this)">人气优先</li>
-        <li onclick="Sorts(this)">价格最低</li>
-        <li onclick="Sorts(this)">价格最高</li>
-    </ul>
-</div>
+
 <!-- End Category -->
 <!-- demo-content -->
 <div class="demo-content">Content</div>
