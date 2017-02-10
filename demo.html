@@ -12,65 +12,44 @@
     <meta name="HandheldFriendly" content="true"/>
     <link type="text/css" rel="stylesheet" href="css/demo.css">
     <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/plungs/filter-tabs.js"></script>
+
     <script src="js/demo.js"></script>
 </head>
 <body>
-<!-- screening -->
-<div class="screening">
-    <ul>
-        <li class="Regional">地域</li>
-        <li class="Brand">品牌</li>
-        <li class="Sort">类型</li>
-    </ul>
-</div>
-<!-- End screening -->
+
+<div class="filter-tabs-screening"></div>
 <!-- grade -->
 <div class="grade-eject">
-    <ul class="grade-w" id="gradew">
-        <li onclick="grade1(this)">哈尔滨</li>
-        <li onclick="grade1(this)">全国</li>
-        <li onclick="grade1(this)">北京</li>
-        <li onclick="grade1(this)">天津</li>
-        <li onclick="grade1(this)">河北</li>
-        <li onclick="grade1(this)">山西</li>
-        <li onclick="grade1(this)">内蒙古</li>
-        <li onclick="grade1(this)">辽宁</li>
-        <li onclick="grade1(this)">吉林</li>
-        <li onclick="grade1(this)">黑龙江</li>
-        <li onclick="grade1(this)">上海</li>
-        <li onclick="grade1(this)">江苏</li>
-        <li onclick="grade1(this)">山东</li>
-        <li onclick="grade1(this)">河南</li>
-        <li onclick="grade1(this)">湖北</li>
-        <li onclick="grade1(this)">湖南</li>
-        <li onclick="grade1(this)">广东</li>
-        <li onclick="grade1(this)">广西</li>
-        <li onclick="grade1(this)">海南</li>
+    <ul class="grade-first" id="gradew">
+        <li onclick="gradeFirst(this)">全部</li>
+        <li onclick="gradeFirst(this)">长宁</li>
+        <li onclick="gradeFirst(this)">徐汇</li>
+        <li onclick="gradeFirst(this)">普陀</li>
+        <li onclick="gradeFirst(this)">浦东</li>
+        <li onclick="gradeFirst(this)">宝山</li>
+        <li onclick="gradeFirst(this)">闵行</li>
     </ul>
-    <ul class="grade-t" id="gradet">
-        <li onclick="gradet(this)">全河北</li>
-        <li onclick="gradet(this)">石家庄</li>
-        <li onclick="gradet(this)">唐山</li>
-        <li onclick="gradet(this)">秦皇岛</li>
-        <li onclick="gradet(this)">邢台</li>
-        <li onclick="gradet(this)">保定</li>
-        <li onclick="gradet(this)">张家口</li>
-        <li onclick="gradet(this)">承德</li>
-        <li onclick="gradet(this)">沧州</li>
-        <li onclick="gradet(this)">廊坊</li>
-        <li onclick="gradet(this)">衡水</li>
+    <ul class="grade-second" id="gradet">
+        <li onclick="gradeSecond(this)">全部</li>
+        <li onclick="gradeSecond(this)">北新泾</li>
+        <li onclick="gradeSecond(this)">天山</li>
+        <li onclick="gradeSecond(this)">古北</li>
+        <li onclick="gradeSecond(this)">虹桥</li>
+        <li onclick="gradeSecond(this)">西郊</li>
+        <li onclick="gradeSecond(this)">仙霞</li>
     </ul>
-    <ul class="grade-s" id="grades">
-        <li onclick="grades(this)">全秦皇岛</li>
-        <li onclick="grades(this)">海港区</li>
-        <li onclick="grades(this)">山海关区</li>
-        <li onclick="grades(this)">北戴河区</li>
-        <li onclick="grades(this)">青龙满族自治区</li>
-        <li onclick="grades(this)">昌黎县</li>
-        <li onclick="grades(this)">抚宁县</li>
-        <li onclick="grades(this)">卢龙县</li>
-        <li onclick="grades(this)">其他区</li>
-        <li onclick="grades(this)">经济技术开发区</li>
+    <ul class="grade-third" id="grades">
+        <li onclick="gradeThird(this)">1</li>
+        <li onclick="gradeThird(this)">2</li>
+        <li onclick="gradeThird(this)">3</li>
+        <li onclick="gradeThird(this)">4</li>
+        <li onclick="gradeThird(this)">5</li>
+        <li onclick="gradeThird(this)">6</li>
+        <li onclick="gradeThird(this)">7</li>
+        <li onclick="gradeThird(this)">8</li>
+        <li onclick="gradeThird(this)">9</li>
+        <li onclick="gradeThird(this)">10</li>
     </ul>
 </div>
 <!-- End grade -->
