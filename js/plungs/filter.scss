@@ -7,7 +7,11 @@ body {
   font-family: Microsoft YaHei;
 }
 
-/* screening */
+$contentHeight:343px;
+$yellowColor:#FF7C08;
+$settingHeight:3rem;
+
+  /* screening */
 
 div.filter-tabs-screening {
   width: 100%;
@@ -29,7 +33,7 @@ div.filter-tabs-screening {
       /*border-left: solid 1px #d3d3d3;*/
       background: url("../images/on_1.png") no-repeat 85% center;
       &.active {
-        color: #FF7C08;
+        color: $yellowColor;
         background: url("") no-repeat 85% center;
       }
     }
@@ -38,7 +42,7 @@ div.filter-tabs-screening {
 
 /* grade */
 
-.filter-tabs-grade, .filter-tabs-sigle {
+.filter-tabs-grade, .filter-tabs-sigle ,.filter-tabs-multiple{
   position: fixed;
   top: -65%;
   width: 100%;
@@ -47,7 +51,7 @@ div.filter-tabs-screening {
   -webkit-transition-duration: 0.4s;
 }
 
-.filter-tabs-grade > ul, .filter-tabs-sigle > ul {
+.filter-tabs-grade > ul, .filter-tabs-sigle > ul ,.filter-tabs-multiple > ul{
   margin: 0;
   padding: 0;
   overflow: auto;
@@ -56,7 +60,7 @@ div.filter-tabs-screening {
   -webkit-transition-duration: 0.4s;
 }
 
-.filter-tabs-grade > ul > li, .filter-tabs-sigle > ul > li {
+.filter-tabs-grade > ul > li, .filter-tabs-sigle > ul > li ,.filter-tabs-multiple  > ul > li{
   line-height: 3rem;
   font-size: 0.12rem;
   padding-left: 1rem;
@@ -70,12 +74,12 @@ div.filter-tabs-screening {
 }
 
 .filter-tabs-sigle > ul .active {
-  color: #FF7C08;
+  color: $yellowColor;
 }
 
 .filter-tabs-grade > ul {
   &.grade-first .active {
-    color: #FF7C08;
+    color: $yellowColor;
   }
   &.grade-second {
     background: #fff;
@@ -83,7 +87,7 @@ div.filter-tabs-screening {
     z-index: 2;
     left: 100%;
     .active {
-      color: #FF7C08;
+      color: $yellowColor;
     }
     > li {
       border-bottom: solid 1px #fff;
@@ -116,11 +120,11 @@ div.filter-tabs-screening {
   }
 }
 
-/*Sort-eject*/
+/* 单选 */
 
 .filter-tabs-sigle {
   .filter-sigle-content {
-    height: 343px;
+    max-height: $contentHeight;
     background: #fff;
     position: absolute;
     z-index: 3;
@@ -146,6 +150,7 @@ div.filter-tabs-screening {
       margin-right: 1rem;
     }
     .intervalInput{
+      -webkit-appearance: none;
       background-color: #eee;
       padding:0.5rem 1rem;
       border: none;
@@ -156,13 +161,61 @@ div.filter-tabs-screening {
       display: inline-block;
       height: 1px;
       width: 1rem;
-      background-color:#FF7C08;
+      background-color:$yellowColor;
       border: none;
       margin: 0.5rem;
     }
     .intervalSure{
-      color:#FF7C08;
+      color:$yellowColor;
       margin-left: 1rem
+    }
+  }
+}
+
+/* 多选 */
+.filter-tabs-multiple{
+
+  .filter-multiple-content {
+    max-height: $contentHeight;
+    background: #fff;
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    list-style-type: none;
+    > li {
+      /*border-bottom: solid 1px #eee;*/
+      padding:0 1rem;
+
+      input[type = checkbox]{
+        order: 4;
+        outline: none;
+        counter-increment: undone-items;
+      }
+      .multiple-checkbox{
+        float:right;
+      }
+    }
+  }
+
+  .filter-multiple-setting{
+    position: absolute;
+    z-index: 5;
+    bottom: 0px;
+    height: $settingHeight;
+    line-height: $settingHeight;
+    background-color: #fff;
+    width: 100%;
+    border-top: 1px #ccc solid;
+    padding-left: 1rem;
+    .multipleSure{
+      -webkit-appearance: none;
+      text-align: center;
+      width: 90%;
+      background-color:$yellowColor;
+      color: #fff;
+      border: none;
+      height: 65%;
+      border-radius: 3px;
     }
   }
 }

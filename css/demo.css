@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   margin: 0;
   padding: 0;
@@ -31,7 +32,7 @@ div.filter-tabs-screening {
         background: url("") no-repeat 85% center; }
 
 /* grade */
-.filter-tabs-grade, .filter-tabs-sigle {
+.filter-tabs-grade, .filter-tabs-sigle, .filter-tabs-multiple {
   position: fixed;
   top: -65%;
   width: 100%;
@@ -39,7 +40,7 @@ div.filter-tabs-screening {
   z-index: 1;
   -webkit-transition-duration: 0.4s; }
 
-.filter-tabs-grade > ul, .filter-tabs-sigle > ul {
+.filter-tabs-grade > ul, .filter-tabs-sigle > ul, .filter-tabs-multiple > ul {
   margin: 0;
   padding: 0;
   overflow: auto;
@@ -47,7 +48,7 @@ div.filter-tabs-screening {
   width: 100%;
   -webkit-transition-duration: 0.4s; }
 
-.filter-tabs-grade > ul > li, .filter-tabs-sigle > ul > li {
+.filter-tabs-grade > ul > li, .filter-tabs-sigle > ul > li, .filter-tabs-multiple > ul > li {
   line-height: 3rem;
   font-size: 0.12rem;
   padding-left: 1rem;
@@ -96,9 +97,9 @@ div.filter-tabs-screening {
     background: rgba(0, 0, 0, 0.2);
     top: 0; }
 
-/*Sort-eject*/
+/* 单选 */
 .filter-tabs-sigle .filter-sigle-content {
-  height: 343px;
+  max-height: 343px;
   background: #fff;
   position: absolute;
   z-index: 3;
@@ -122,6 +123,7 @@ div.filter-tabs-screening {
   .filter-tabs-sigle .filter-sigle-setting .intervalTip {
     margin-right: 1rem; }
   .filter-tabs-sigle .filter-sigle-setting .intervalInput {
+    -webkit-appearance: none;
     background-color: #eee;
     padding: 0.5rem 1rem;
     border: none;
@@ -137,6 +139,44 @@ div.filter-tabs-screening {
   .filter-tabs-sigle .filter-sigle-setting .intervalSure {
     color: #FF7C08;
     margin-left: 1rem; }
+
+/* 多选 */
+.filter-tabs-multiple .filter-multiple-content {
+  max-height: 343px;
+  background: #fff;
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  list-style-type: none; }
+  .filter-tabs-multiple .filter-multiple-content > li {
+    /*border-bottom: solid 1px #eee;*/
+    padding: 0 1rem; }
+    .filter-tabs-multiple .filter-multiple-content > li input[type=checkbox] {
+      order: 4;
+      outline: none;
+      counter-increment: undone-items; }
+    .filter-tabs-multiple .filter-multiple-content > li .multiple-checkbox {
+      float: right; }
+
+.filter-tabs-multiple .filter-multiple-setting {
+  position: absolute;
+  z-index: 5;
+  bottom: 0px;
+  height: 3rem;
+  line-height: 3rem;
+  background-color: #fff;
+  width: 100%;
+  border-top: 1px #ccc solid;
+  padding-left: 1rem; }
+  .filter-tabs-multiple .filter-multiple-setting .multipleSure {
+    -webkit-appearance: none;
+    text-align: center;
+    width: 90%;
+    background-color: #FF7C08;
+    color: #fff;
+    border: none;
+    height: 65%;
+    border-radius: 3px; }
 
 /* demo-content */
 .demo-content {

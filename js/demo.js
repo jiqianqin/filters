@@ -1281,8 +1281,18 @@ $(document).ready(function(){
         data:mock.priceRange,
         settingTip:"自定义价格",
         placeholderLow:"最低价格",
-        placeholderHigh:"最高价格"
+        placeholderHigh:"最高价格",
+        comfirm:function(data){
+            alert(JSON.stringify(data));
+        }
     });
+
+    $("#typeFilter").filterMultiple({
+        data:mock.roomAmount,
+        comfirm:function(data){
+            alert(data);
+        }
+    })
 
 
 });
