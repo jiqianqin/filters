@@ -5,7 +5,7 @@
     var pluginName = "filterTabs";
     var defaults = {
         data:[],
-        clickHandle:null //点击事件
+        clickHandle:null, //点击事件
     }
 
     function Plugin(element,options){

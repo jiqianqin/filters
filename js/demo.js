@@ -1271,18 +1271,18 @@ $(document).ready(function(){
         $(".filter-content-"+data).addClass('grade-w-roll');
     }});
 
+    //三级筛选
     $("#areaFilter").filterGrade({data:mock.areaPlate,clickHandle:function(data){
         alert("点击第一次"+data);
     }});
 
+    //单选
+    $("#priceFilter").filterSigle({
+        data:mock.priceRange,
+        settingTip:"自定义价格",
+        placeholderLow:"最低价格",
+        placeholderHigh:"最高价格"
+    });
+
+
 });
-
-
-function Sorts(sbj){
-    var arr = document.getElementById("Sort-Sort").getElementsByTagName("li");
-    for (var i = 0; i < arr.length; i++){
-        var a = arr[i];
-        a.style.color = "#000";
-    };
-    sbj.style.color="#FF7C08"
-}
