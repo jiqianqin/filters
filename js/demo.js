@@ -1296,6 +1296,9 @@ $(document).ready(function(){
 
     $("#moreFilter").filterTags({
         data:mock.more,
+        selected:{
+            areaRange:[1,3,5,7]
+        },
         comfirm:function(data){
             alert(data);
         }

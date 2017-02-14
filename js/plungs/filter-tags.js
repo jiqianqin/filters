@@ -7,6 +7,7 @@
         data:{},
         sureBtn:"确定",
         resetBtn:"清空选项",
+        selected:null,
         clickHandle:null, //点击事件
     }
 
@@ -56,6 +57,9 @@
         var self = this;
         var ul= document.createElement('ul');
         $(ul).addClass("tags");
+        if(!(self.options.selected[type] instanceof Array)){
+            self.options.selected[type]=new Array();
+        };
 
         var i,len;  //优化变量声明
         // 动态添加数据
@@ -64,6 +68,10 @@
             li.setAttribute("data-tags-type",type || "");
             li.setAttribute("data-tags-id",tags[i].key || ("tab"+i));
             li.innerHTML=tags[i].desc;
+
+            if( self.options.selected[type].indexOf(tags[i].key,0) != -1){
+                $(li).addClass('active');
+            }
 
             //绑定点击事件
             self.initBind(li,type);
@@ -108,9 +116,6 @@
 
         this.element.appendChild(div);
         return this;
-
-
-
     }
 
     /**
