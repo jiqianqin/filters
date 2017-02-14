@@ -1294,5 +1294,11 @@ $(document).ready(function(){
         }
     })
 
+    $("#moreFilter").filterTags({
+        data:mock.more,
+        comfirm:function(data){
+            alert(data);
+        }
+    })
 
 });

@@ -32,7 +32,7 @@ div.filter-tabs-screening {
         background: url("") no-repeat 85% center; }
 
 /* grade */
-.filter-tabs-grade, .filter-tabs-sigle, .filter-tabs-multiple {
+.filter-tabs-grade, .filter-tabs-sigle, .filter-tabs-multiple, .filter-tabs-tags {
   position: fixed;
   top: -65%;
   width: 100%;
@@ -40,7 +40,7 @@ div.filter-tabs-screening {
   z-index: 1;
   -webkit-transition-duration: 0.4s; }
 
-.filter-tabs-grade > ul, .filter-tabs-sigle > ul, .filter-tabs-multiple > ul {
+.filter-tabs-grade > ul, .filter-tabs-sigle > ul, .filter-tabs-multiple > ul, .filter-tabs-tags > ul {
   margin: 0;
   padding: 0;
   overflow: auto;
@@ -48,7 +48,7 @@ div.filter-tabs-screening {
   width: 100%;
   -webkit-transition-duration: 0.4s; }
 
-.filter-tabs-grade > ul > li, .filter-tabs-sigle > ul > li, .filter-tabs-multiple > ul > li {
+.filter-tabs-grade > ul > li, .filter-tabs-sigle > ul > li, .filter-tabs-multiple > ul > li, .filter-tabs-tags > ul > li {
   line-height: 3rem;
   font-size: 0.12rem;
   padding-left: 1rem;
@@ -175,6 +175,64 @@ div.filter-tabs-screening {
     background-color: #FF7C08;
     color: #fff;
     border: none;
+    height: 65%;
+    border-radius: 3px; }
+
+/* tags多选 */
+.filter-tabs-tags .filter-tags-content {
+  max-height: 343px;
+  background: #fff;
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  list-style-type: none; }
+  .filter-tabs-tags .filter-tags-content li {
+    /*border-bottom: solid 1px #eee;*/
+    padding: 0 1rem; }
+  .filter-tabs-tags .filter-tags-content ul.tags {
+    padding: 0; }
+    .filter-tabs-tags .filter-tags-content ul.tags h2 {
+      line-height: 1.5rem; }
+    .filter-tabs-tags .filter-tags-content ul.tags li {
+      padding: 0.1rem 0;
+      background-color: #eee;
+      margin: 0.2rem 0.4rem 0.3rem 0rem;
+      line-height: 1.5rem;
+      border-radius: 2px;
+      width: 4.7rem;
+      display: inline-block;
+      text-align: center; }
+      .filter-tabs-tags .filter-tags-content ul.tags li.active {
+        color: #fff;
+        background-color: #FF7C08; }
+
+.filter-tabs-tags .filter-tags-setting {
+  position: absolute;
+  z-index: 5;
+  bottom: 0px;
+  height: 3rem;
+  line-height: 3rem;
+  background-color: #fff;
+  width: 100%;
+  text-align: center;
+  border-top: 1px #ccc solid; }
+  .filter-tabs-tags .filter-tags-setting .tagsSure {
+    margin-right: 1rem;
+    -webkit-appearance: none;
+    text-align: center;
+    width: 50%;
+    background-color: #FF7C08;
+    color: #fff;
+    border: none;
+    height: 65%;
+    border-radius: 3px; }
+  .filter-tabs-tags .filter-tags-setting .tagsReset {
+    margin-left: 1rem;
+    -webkit-appearance: none;
+    text-align: center;
+    width: 30%;
+    background-color: #fff;
+    border: 1px solid #ccc;
     height: 65%;
     border-radius: 3px; }
 
