@@ -61,8 +61,8 @@
         // 动态添加数据
         for(i=0, len = tags.length; i<len; i++){
             var li = document.createElement('li');
-
-            li.setAttribute("data-tab-id",tags[i].key || ("tab"+i));
+            li.setAttribute("data-tags-type",type || "");
+            li.setAttribute("data-tags-id",tags[i].key || ("tab"+i));
             li.innerHTML=tags[i].desc;
 
             //绑定点击事件
@@ -97,15 +97,39 @@
         $(sureBtn).addClass("tagsSure");
         div.appendChild(sureBtn);
 
+        $(sureBtn).on("click", function () {
+            var select = self.getSelected();
+            self.options.comfirm && self.options.comfirm(select);
+        })
+
+        $(resetBtn).on("click", function () {
+            $(self.element).find(".tags .active").removeClass('active');
+        })
+
         this.element.appendChild(div);
         return this;
 
-        //$(sureBtn).on("click", function () {
-        //    self.options.comfirm && self.options.comfirm({
-        //        intervalLow:$(inputLow).val(),
-        //        intervalHigh:$(inputHigh).val()
-        //    });
-        //})
+
+
+    }
+
+    /**
+     * 获取所有选择的
+     */
+    Plugin.prototype.getSelected = function(){
+        var i,len;  //优化变量声明
+        var tags = document.querySelectorAll(".tags li.active");
+        var selected = {};
+        // 动态添加数据
+        for(i=0, len = tags.length; i<len; i++){
+            var type = tags[i].getAttribute("data-tags-type");
+            var id = tags[i].getAttribute("data-tags-id");
+            if(!selected[type]){
+                selected[type]= [];
+            }
+            selected[type].push(id);
+        }
+        return selected;
     }
 
     /**
@@ -121,8 +145,7 @@
             }
 
             var key = content.getAttribute("data-tab-id");
-            alert("type:"+type+"   key:"+key);
-            //self.options.clickHandle && self.options.clickHandle(key);
+            self.options.clickHandle && self.options.clickHandle(key);
         })
     }
 
