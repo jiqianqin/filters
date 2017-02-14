@@ -12,6 +12,7 @@
         placeholderHigh:"最高区间",
         sureBtn:"确定",
         clickHandle:null, //点击事件
+        comfirm:null
     }
 
     function Plugin(element,options){

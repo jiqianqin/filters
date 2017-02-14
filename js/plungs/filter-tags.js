@@ -9,6 +9,7 @@
         resetBtn:"清空选项",
         selected:null,
         clickHandle:null, //点击事件
+        comfirm:null //点击确认后触发
     }
 
     function Plugin(element,options){
@@ -89,6 +90,10 @@
         $(settingContent).css("top",height+"px")
     }
 
+    /**
+     * 添加 处理按钮
+     * @returns {Plugin}
+     */
     Plugin.prototype.tagsSetting = function(){
         var self = this;
         var div = document.createElement('div');
@@ -150,7 +155,7 @@
             }
 
             var key = content.getAttribute("data-tab-id");
-            self.options.clickHandle && self.options.clickHandle(key);
+            self.options.clickHandle && self.options.clickHandle({key:key,type:type});
         })
     }
 
