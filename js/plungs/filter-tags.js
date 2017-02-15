@@ -7,6 +7,7 @@
         data:{},
         sureBtn:"确定",
         resetBtn:"清空选项",
+        multiselectEnable:false,//是否支持多选
         selected:null,
         clickHandle:null, //点击事件
         comfirm:null //点击确认后触发
@@ -58,7 +59,8 @@
         var self = this;
         var ul= document.createElement('ul');
         $(ul).addClass("tags");
-        if(!(self.options.selected[type] instanceof Array)){
+        if(!self.options.selected || !(self.options.selected[type] instanceof Array)){
+            self.options.selected = {};
             self.options.selected[type]=new Array();
         };
 
@@ -148,9 +150,11 @@
     Plugin.prototype.initBind = function(content,type){
         var self = this;
         $(content).on("click", function () {
+
             if( $(content).hasClass('active')){
                 $(content).removeClass('active');
             }else {
+                (!self.options.multiselectEnable ) &&  $(content).parent().find("li").removeClass('active');
                 $(content).addClass('active');
             }
 

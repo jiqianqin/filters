@@ -7,6 +7,9 @@
         data:{},
         sureBtn:"确定",
         comfirm:null,
+        selectAllEnable:true,
+        selectAllTip:"全部",
+        selectAllHandle:null,
         clickHandle:null, //点击事件
     }
 
@@ -31,7 +34,17 @@
         var self = this;
 
         var ul= document.createElement('ul');
-        $(ul).addClass("filter-multiple-content");
+        $(ul).addClass("filter-multiple-content")
+
+        if(self.options.selectAllEnable){
+            var li = document.createElement('li');
+            li.innerHTML=self.options.selectAllTip;
+            $(li).on("click", function () {
+                self.selectAllHandle();
+                self.options.selectAllHandle && self.options.selectAllHandle();
+            })
+            ul.appendChild(li);
+        }
 
         var i,len;  //优化变量声明
         // 动态添加数据
@@ -69,6 +82,17 @@
         this.element.appendChild(div);
 
         return this;
+    }
+
+    Plugin.prototype.selectAllHandle = function(){
+        var self = this ;
+        var checkbox =  $(".multiple-checkbox");
+        if(checkbox.length ==  self.options.data.length && $(checkbox[0]).attr("checked")){
+            checkbox.attr("checked",false);
+        }else {
+            checkbox.attr("checked",true);
+        }
+
     }
 
     Plugin.prototype.getSelected = function(){

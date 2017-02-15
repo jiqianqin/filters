@@ -42,6 +42,18 @@
     }
 
     /**
+     * 是否显示自定义
+     */
+    Plugin.prototype.settingShow = function(data){
+        var div= document.createElement('div'); //创建评论内容容器
+        div.css("position","fixed")
+            .css("bottom","0");
+
+        div
+        this.element.appendChild(div);
+    }
+
+    /**
      * 初始化样式
      */
     Plugin.prototype.initStyle = function(){
