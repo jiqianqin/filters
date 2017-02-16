@@ -1262,9 +1262,14 @@ $(document).ready(function(){
     var data=[{name:"区域",id:"area"},{name:"总价",id:"price"},{name:"房型",id:"type"},{name:"更多",id:"more"}];
 
     $(".filter-tabs-screening").filterTabs({data:data,clickHandle:function(data){
+        var flag = false; //true : 目前已经是打开状态  false :关闭状态
+        if($(".filter-content-"+data).hasClass('grade-w-roll')){
+            flag = true;
+        }
         //显示对应的容器
         $(".filter-tabs-content").removeClass('grade-w-roll');
-        $(".filter-content-"+data).addClass('grade-w-roll');
+        flag || $(".filter-content-"+data).addClass('grade-w-roll');
+
     }});
 
     //三级筛选
