@@ -41,10 +41,8 @@
             var li = document.createElement('li');
 
             li.setAttribute("data-tab-id",data[i].key || ("tab"+i));
-            li.innerHTML=data[i].desc;
+            li.innerHTML="<span class='tagsDesc'>"+data[i].desc+"<span>";
 
-            var title= document.createElement('h2');
-            li.appendChild(title);
             li.appendChild(self.tagsShow(data[i].nodeList,data[i].key));
 
             //绑定点击事件
@@ -58,7 +56,7 @@
     Plugin.prototype.tagsShow = function(tags,type){
         var self = this;
         var ul= document.createElement('ul');
-        $(ul).addClass("tags");
+        $(ul).addClass("tags clearfix");
         if(!self.options.selected || !(self.options.selected[type] instanceof Array)){
             self.options.selected = {};
             self.options.selected[type]=new Array();

@@ -92,7 +92,7 @@
         $(inputLow).addClass("intervalLow");
         div.appendChild(inputLow);
 
-        var intervalHr =  document.createElement('hr');
+        var intervalHr =  document.createElement('span');
         $(intervalHr).addClass("intervalHr");
         div.appendChild(intervalHr);
 

@@ -7,7 +7,7 @@
         data:{},
         level:2, //默认2层数据
         clickHandle:null, //点击事件
-        percent:[33,33,33] //整行为100
+        percent:[30,30,30] //整行为100
     }
     var nowLevel = 1;
     var subGradeData;
@@ -99,7 +99,7 @@
                 $(".grade-third").css("left","100%");
                 break;
             case 3 :
-                $(".grade-second").css("left","33%");
+                $(".grade-second").css("left","30%");
                 $(".grade-third").css("left",self.options.percent[1]+self.options.percent[0]+"%");
                 break;
         }

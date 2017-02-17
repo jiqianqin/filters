@@ -38,6 +38,8 @@
 
         if(self.options.selectAllEnable){
             var li = document.createElement('li');
+            $(li).addClass('clickAll');
+            $(li).attr('id','clickAll');
             li.innerHTML=self.options.selectAllTip;
             $(li).on("click", function () {
                 self.selectAllHandle();
@@ -52,9 +54,8 @@
             var li = document.createElement('li');
             li.innerHTML=data[i].desc;
 
-            var checkbox = document.createElement('input');
+            var checkbox = document.createElement('span');
             checkbox.setAttribute("data-tab-id",data[i].key || ("tab"+i));
-            checkbox.setAttribute("type","checkbox");
             $(checkbox).addClass("multiple-checkbox");
             li.appendChild(checkbox);
 
@@ -86,13 +87,12 @@
 
     Plugin.prototype.selectAllHandle = function(){
         var self = this ;
-        var checkbox =  $(".multiple-checkbox");
-        if(checkbox.length ==  self.options.data.length && $(checkbox[0]).attr("checked")){
-            checkbox.attr("checked",false);
+        var checkbox =  $(".filter-multiple-content li");
+        if($('.clickAll').hasClass("active")){
+            checkbox.removeClass("active");
         }else {
-            checkbox.attr("checked",true);
+            checkbox.addClass("active");
         }
-
     }
 
     Plugin.prototype.getSelected = function(){
@@ -122,8 +122,12 @@
     Plugin.prototype.initBind = function(content){
         var self = this;
         $(content).on("click", function () {
-            $(content).parent().find("li").removeClass('active');
-            $(content).addClass('active');
+            $(content).hasClass('active') ? $(content).removeClass('active'):$(content).addClass('active');
+            if( $(".filter-multiple-content li[id!='clickAll']").length == $(".filter-multiple-content li.active[id!='clickAll']").length){
+                $(".clickAll").addClass('active');
+            }else {
+                $(".clickAll").removeClass('active');
+            }
             var key = content.getAttribute("data-tab-id");
             self.options.clickHandle && self.options.clickHandle(key);
         })

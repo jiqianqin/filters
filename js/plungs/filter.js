@@ -7,7 +7,7 @@
         data:{},
         level:2, //默认2层数据
         clickHandle:null, //点击事件
-        percent:[33,33,33] //整行为100
+        percent:[30,30,30] //整行为100
     }
     var nowLevel = 1;
     var subGradeData;
@@ -99,7 +99,7 @@
                 $(".grade-third").css("left","100%");
                 break;
             case 3 :
-                $(".grade-second").css("left","33%");
+                $(".grade-second").css("left","30%");
                 $(".grade-third").css("left",self.options.percent[1]+self.options.percent[0]+"%");
                 break;
         }
@@ -214,6 +214,8 @@
 
         if(self.options.selectAllEnable){
             var li = document.createElement('li');
+            $(li).addClass('clickAll');
+            $(li).attr('id','clickAll');
             li.innerHTML=self.options.selectAllTip;
             $(li).on("click", function () {
                 self.selectAllHandle();
@@ -228,9 +230,8 @@
             var li = document.createElement('li');
             li.innerHTML=data[i].desc;
 
-            var checkbox = document.createElement('input');
+            var checkbox = document.createElement('span');
             checkbox.setAttribute("data-tab-id",data[i].key || ("tab"+i));
-            checkbox.setAttribute("type","checkbox");
             $(checkbox).addClass("multiple-checkbox");
             li.appendChild(checkbox);
 
@@ -262,13 +263,12 @@
 
     Plugin.prototype.selectAllHandle = function(){
         var self = this ;
-        var checkbox =  $(".multiple-checkbox");
-        if(checkbox.length ==  self.options.data.length && $(checkbox[0]).attr("checked")){
-            checkbox.attr("checked",false);
+        var checkbox =  $(".filter-multiple-content li");
+        if($('.clickAll').hasClass("active")){
+            checkbox.removeClass("active");
         }else {
-            checkbox.attr("checked",true);
+            checkbox.addClass("active");
         }
-
     }
 
     Plugin.prototype.getSelected = function(){
@@ -298,8 +298,12 @@
     Plugin.prototype.initBind = function(content){
         var self = this;
         $(content).on("click", function () {
-            $(content).parent().find("li").removeClass('active');
-            $(content).addClass('active');
+            $(content).hasClass('active') ? $(content).removeClass('active'):$(content).addClass('active');
+            if( $(".filter-multiple-content li[id!='clickAll']").length == $(".filter-multiple-content li.active[id!='clickAll']").length){
+                $(".clickAll").addClass('active');
+            }else {
+                $(".clickAll").removeClass('active');
+            }
             var key = content.getAttribute("data-tab-id");
             self.options.clickHandle && self.options.clickHandle(key);
         })
@@ -428,7 +432,7 @@
         $(inputLow).addClass("intervalLow");
         div.appendChild(inputLow);
 
-        var intervalHr =  document.createElement('hr');
+        var intervalHr =  document.createElement('span');
         $(intervalHr).addClass("intervalHr");
         div.appendChild(intervalHr);
 
@@ -538,10 +542,8 @@
             var li = document.createElement('li');
 
             li.setAttribute("data-tab-id",data[i].key || ("tab"+i));
-            li.innerHTML=data[i].desc;
+            li.innerHTML="<span class='tagsDesc'>"+data[i].desc+"<span>";
 
-            var title= document.createElement('h2');
-            li.appendChild(title);
             li.appendChild(self.tagsShow(data[i].nodeList,data[i].key));
 
             //绑定点击事件
@@ -555,7 +557,7 @@
     Plugin.prototype.tagsShow = function(tags,type){
         var self = this;
         var ul= document.createElement('ul');
-        $(ul).addClass("tags");
+        $(ul).addClass("tags clearfix");
         if(!self.options.selected || !(self.options.selected[type] instanceof Array)){
             self.options.selected = {};
             self.options.selected[type]=new Array();

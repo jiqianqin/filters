@@ -151,12 +151,19 @@ div.filter-tabs-screening {
   .filter-tabs-multiple .filter-multiple-content > li {
     /*border-bottom: solid 1px #eee;*/
     padding: 0 1rem; }
-    .filter-tabs-multiple .filter-multiple-content > li input[type=checkbox] {
-      order: 4;
-      outline: none;
-      counter-increment: undone-items; }
+    .filter-tabs-multiple .filter-multiple-content > li.active {
+      color: #FF7C08; }
     .filter-tabs-multiple .filter-multiple-content > li .multiple-checkbox {
-      float: right; }
+      width: 20px;
+      height: 20px;
+      float: right;
+      background-image: url("../images/noChoice@2x.png");
+      background-repeat: no-repeat;
+      background-size: contain; }
+    .filter-tabs-multiple .filter-multiple-content > li.active .multiple-checkbox {
+      background-image: url("../images/choice@2x.png");
+      background-repeat: no-repeat;
+      background-size: contain; }
 
 .filter-tabs-multiple .filter-multiple-setting {
   position: absolute;

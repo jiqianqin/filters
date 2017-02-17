@@ -26,7 +26,7 @@ gulp.task('contentjs',function(){
         .pipe(concat('filter.js'))
         .pipe(gulp.dest('js/plungs'))
 
-    gulp.watch('js/plungs',['contentjs']);
+    gulp.watch('js/plungs/*.js',['contentjs']);
 
 })
 

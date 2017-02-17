@@ -1261,20 +1261,21 @@ var mock = {
 $(document).ready(function(){
     var data=[{name:"区域",id:"area"},{name:"总价",id:"price"},{name:"房型",id:"type"},{name:"更多",id:"more"}];
 
-    $(".filter-tabs-screening").filterTabs({data:data,clickHandle:function(data){
-        var flag = false; //true : 目前已经是打开状态  false :关闭状态
-        if($(".filter-content-"+data).hasClass('grade-w-roll')){
-            flag = true;
-        }
-        //显示对应的容器
+    function setFilterShow(content){
         $(".filter-tabs-content").removeClass('grade-w-roll');
-        flag || $(".filter-content-"+data).addClass('grade-w-roll');
+        content &&  $(content).addClass('grade-w-roll');
+    }
 
+    $(".filter-tabs-screening").filterTabs({data:data,clickHandle:function(data){
+        var content;
+        $(".filter-content-"+data).hasClass('grade-w-roll') || (content = ".filter-content-"+data);
+        setFilterShow(content);
     }});
+
 
     //三级筛选
     $("#areaFilter").filterGrade({data:mock.areaPlate,clickHandle:function(data){
-        alert("点击第一次"+data);
+        alert("点击第一次"+data.length);
     }});
 
     //单选

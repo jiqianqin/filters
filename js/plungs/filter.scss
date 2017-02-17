@@ -186,14 +186,24 @@ div.filter-tabs-screening {
       /*border-bottom: solid 1px #eee;*/
       padding:0 1rem;
 
-      input[type = checkbox]{
-        order: 4;
-        outline: none;
-        counter-increment: undone-items;
+      &.active{
+        color: $yellowColor;
       }
       .multiple-checkbox{
+        width: 20px;
+        height: 20px;
         float:right;
+        background-image:url('../images/noChoice@2x.png');
+        background-repeat:no-repeat;
+        background-size:contain;
+        //background: url("../images/noChoice@2x.png") no-repeat contain center;
       }
+      &.active .multiple-checkbox{
+        background-image:url("../images/choice@2x.png");
+        background-repeat:no-repeat;
+        background-size:contain;
+      }
+
     }
   }
 
