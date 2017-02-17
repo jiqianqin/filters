@@ -30,7 +30,7 @@
         var i,len;  //优化变量声明
         for(i=0, len = data.length; i<len; i++){
             var li = document.createElement('li'); //删除按钮
-
+            $(li).addClass("filter-tab-id-" + data[i].id);
             li.setAttribute("data-tab-id",data[i].id || ("tab"+i));
             li.innerHTML=data[i].name;
             self.initBind(li);
@@ -51,6 +51,14 @@
 
         div
         this.element.appendChild(div);
+    }
+
+    /**
+     * tab名称换值
+     */
+    Plugin.prototype.setTabName= function(key,name){
+        var content =  $(".filter-tab-id-"+key);
+        content && content.length > 0 && ($(".filter-tab-id-"+key)[0].innerHTML = name);
     }
 
     /**

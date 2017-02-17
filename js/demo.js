@@ -1264,6 +1264,8 @@ $(document).ready(function(){
     function setFilterShow(content){
         $(".filter-tabs-content").removeClass('grade-w-roll');
         content &&  $(content).addClass('grade-w-roll');
+        $(".filter-tabs-screening").filterTabs('setTabName',"price","哟吼");
+
     }
 
     $(".filter-tabs-screening").filterTabs({data:data,clickHandle:function(data){
