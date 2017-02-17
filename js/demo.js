@@ -1259,13 +1259,23 @@ var mock = {
 
 
 $(document).ready(function(){
+
     var data=[{name:"区域",id:"area"},{name:"总价",id:"price"},{name:"房型",id:"type"},{name:"更多",id:"more"}];
 
     function setFilterShow(content){
         $(".filter-tabs-content").removeClass('grade-w-roll');
-        content &&  $(content).addClass('grade-w-roll');
-        $(".filter-tabs-screening").filterTabs('setTabName',"price","哟吼");
+        if(content){
+            $(content).addClass('grade-w-roll');
+            if($(content).find('.grade-w-background').length == 0){
+                $(content).append("<div class='grade-w-background' style=''></div>");
+            }
+        }
 
+        $(".filter-tabs-screening").filterTabs('setTabName',"price","哟吼"); //更改tabs显示文字
+
+        $(".grade-w-roll").on("click", function () {
+            setFilterShow();
+        })
     }
 
     $(".filter-tabs-screening").filterTabs({data:data,clickHandle:function(data){
@@ -1273,7 +1283,6 @@ $(document).ready(function(){
         $(".filter-content-"+data).hasClass('grade-w-roll') || (content = ".filter-content-"+data);
         setFilterShow(content);
     }});
-
 
     //三级筛选
     $("#areaFilter").filterGrade({data:mock.areaPlate,clickHandle:function(data){
