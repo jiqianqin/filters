@@ -53,9 +53,9 @@
         for(i=0, len = data.length; i<len; i++){
             var li = document.createElement('li');
             li.innerHTML=data[i].desc;
+            li.setAttribute("data-tab-id",data[i].key || ("tab"+i));
 
             var checkbox = document.createElement('span');
-            checkbox.setAttribute("data-tab-id",data[i].key || ("tab"+i));
             $(checkbox).addClass("multiple-checkbox");
             li.appendChild(checkbox);
 
@@ -96,15 +96,22 @@
     }
 
     Plugin.prototype.getSelected = function(){
-        var selected = [];
+        var selected = [],selectFlag = 2;
         var i,len;  //优化变量声明
-        var divs = $(".multiple-checkbox");
+        var divs = $(".filter-multiple-content li.active[id!='clickAll']");
         for(i=0, len = divs.length; i<len; i++){
-            if(divs[i].checked){
+            if($(divs[i]).hasClass("active")){
                 selected.push(divs[i].getAttribute("data-tab-id"));
             }
         }
-        return selected;
+        if($('.clickAll').hasClass("active")){
+            selectFlag = 1;
+        }else if(selected.length == 0 ){
+            selectFlag = 0;
+        }
+
+        return {selectList:selected,selectFlag:selectFlag};
+        //};
     }
 
     Plugin.prototype.initStyle = function(){

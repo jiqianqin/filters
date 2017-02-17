@@ -22,7 +22,7 @@ gulp.task('sass',function(){
 
 //合并js任务
 gulp.task('contentjs',function(){
-    gulp.src(['js/plungs/filter-grade.js','js/plungs/filter-multiple.js','js/plungs/filter-sigle.js','js/plungs/filter-tags.js'] )
+    gulp.src(['js/plungs/filter-grade.js','js/plungs/filter-multiple.js','js/plungs/filter-sigle.js','js/plungs/filter-tags.js','js/plungs/filter-tabs.js'] )
         .pipe(concat('filter.js'))
         .pipe(gulp.dest('js/plungs'))
 

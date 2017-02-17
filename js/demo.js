@@ -1293,6 +1293,9 @@ $(document).ready(function(){
         data:mock.roomAmount,
         comfirm:function(data){
             alert(data);
+        },
+        clickHandle:function(data){
+            alert("单机:"+data);
         }
     })
 
