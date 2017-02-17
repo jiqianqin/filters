@@ -439,7 +439,7 @@
         $(inputLow).addClass("intervalInput");
         $(inputLow).addClass("intervalLow");
         $(inputLow).on("keyup", function () {
-            checkNum();
+            setSureBtn();
         })
         div.appendChild(inputLow);
 
@@ -453,7 +453,7 @@
         $(inputHigh).addClass("intervalInput");
         $(inputHigh).addClass("intervalHigh");
         $(inputHigh).on("keyup", function () {
-            checkNum();
+            setSureBtn();
         })
         div.appendChild(inputHigh);
 
@@ -466,21 +466,31 @@
         this.element.appendChild(div);
 
         $(sureBtn).on("click", function () {
+            if(!check()){
+                alert("区间设置有误!");
+                return;
+            }
             self.options.comfirm && self.options.comfirm({
                 intervalLow:$(inputLow).val(),
                 intervalHigh:$(inputHigh).val()
             });
-
+            $('.filter-sigle-content >li').removeClass('active');
         })
 
-        function checkNum(){
+        function setSureBtn(){
             if($(inputHigh).val()>0 && $(inputLow).val()>0){
                 $(sureBtn).removeAttr("disabled");
             }else {
                 sureBtn.setAttribute("disabled","disabled");
             }
-            $('.filter-sigle-content >li').removeClass('active');
+        }
 
+        function check(){
+            if(Number($(inputHigh).val()) < Number($(inputLow).val())){
+                  return false;
+            }else {
+                return true;
+            }
         }
     }
 

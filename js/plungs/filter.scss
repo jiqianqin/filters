@@ -167,7 +167,10 @@ div.filter-tabs-screening {
     }
     .intervalSure{
       color:$yellowColor;
-      margin-left: 1rem
+      margin-left: 1rem;
+      &:disabled{
+        color:#f5cca9
+      }
     }
   }
 }

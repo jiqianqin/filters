@@ -139,6 +139,8 @@ div.filter-tabs-screening {
   .filter-tabs-sigle .filter-sigle-setting .intervalSure {
     color: #FF7C08;
     margin-left: 1rem; }
+    .filter-tabs-sigle .filter-sigle-setting .intervalSure:disabled {
+      color: #f5cca9; }
 
 /* 多选 */
 .filter-tabs-multiple .filter-multiple-content {

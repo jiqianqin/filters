@@ -24,7 +24,7 @@ gulp.task('sass',function(){
 gulp.task('contentjs',function(){
     gulp.src(['js/plungs/filter-grade.js','js/plungs/filter-multiple.js','js/plungs/filter-sigle.js','js/plungs/filter-tags.js','js/plungs/filter-tabs.js'] )
         .pipe(concat('filter.js'))
-        .pipe(gulp.dest('js/plungs'))
+        .pipe(gulp.dest('js'))
 
     gulp.watch('js/plungs/*.js',['contentjs']);
 

@@ -88,8 +88,12 @@
 
         var inputLow =  document.createElement('input');
         inputLow.setAttribute("placeholder",self.options.placeholderLow);
+        inputLow.setAttribute("type","number");
         $(inputLow).addClass("intervalInput");
         $(inputLow).addClass("intervalLow");
+        $(inputLow).on("keyup", function () {
+            setSureBtn();
+        })
         div.appendChild(inputLow);
 
         var intervalHr =  document.createElement('span');
@@ -98,23 +102,49 @@
 
         var inputHigh =  document.createElement('input');
         inputHigh.setAttribute("placeholder",self.options.placeholderHigh);
+        inputHigh.setAttribute("type","number");
         $(inputHigh).addClass("intervalInput");
         $(inputHigh).addClass("intervalHigh");
+        $(inputHigh).on("keyup", function () {
+            setSureBtn();
+        })
         div.appendChild(inputHigh);
 
         var sureBtn =  document.createElement('button');
         sureBtn.innerHTML = self.options.sureBtn;
+        sureBtn.setAttribute("disabled","disabled");
         $(sureBtn).addClass("intervalSure");
         div.appendChild(sureBtn);
 
         this.element.appendChild(div);
 
         $(sureBtn).on("click", function () {
+            if(!check()){
+                alert("区间设置有误!");
+                return;
+            }
             self.options.comfirm && self.options.comfirm({
                 intervalLow:$(inputLow).val(),
                 intervalHigh:$(inputHigh).val()
             });
+            $('.filter-sigle-content >li').removeClass('active');
         })
+
+        function setSureBtn(){
+            if($(inputHigh).val()>0 && $(inputLow).val()>0){
+                $(sureBtn).removeAttr("disabled");
+            }else {
+                sureBtn.setAttribute("disabled","disabled");
+            }
+        }
+
+        function check(){
+            if(Number($(inputHigh).val()) < Number($(inputLow).val())){
+                  return false;
+            }else {
+                return true;
+            }
+        }
     }
 
     /**
