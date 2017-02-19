@@ -1273,7 +1273,7 @@ $(document).ready(function(){
 
         $(".filter-tabs-screening").filterTabs('setTabName',"price","哟吼"); //更改tabs显示文字
 
-        $(".grade-w-roll").on("click", function () {
+        $(".grade-w-background").unbind().on("click", function () {
             setFilterShow();
         })
     }
