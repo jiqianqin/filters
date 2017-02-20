@@ -1272,6 +1272,7 @@ $(document).ready(function(){
         }
 
         $(".filter-tabs-screening").filterTabs('setTabName',"price","哟吼"); //更改tabs显示文字
+        $(".filter-tabs-screening").filterTabs("setTabHighLight","price");
 
         $(".grade-w-background").unbind().on("click", function () {
             setFilterShow();

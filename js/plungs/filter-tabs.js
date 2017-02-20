@@ -6,6 +6,7 @@
     var defaults = {
         data:[],
         clickHandle:null, //点击事件
+        multiselectEnable:true
     }
 
     function Plugin(element,options){
@@ -62,6 +63,14 @@
     }
 
     /**
+     * tab名称高亮
+     */
+    Plugin.prototype.setTabHighLight= function(key){
+        var content =  $(".filter-tab-id-"+key);
+        content && content.length > 0 && $($(".filter-tab-id-"+key)[0]).addClass("active");
+    }
+
+    /**
      * 初始化样式
      */
     Plugin.prototype.initStyle = function(){
@@ -78,7 +87,9 @@
     Plugin.prototype.initBind = function(content){
         var self = this;
         $(content).on("click", function () {
-            $(self.element).find("ul li").removeClass('active');
+            if(!self.options.multiselectEnable){
+                $(self.element).find("ul li").removeClass('active');
+            }
             $(content).addClass('active');
             self.options.clickHandle && self.options.clickHandle(content.getAttribute("data-tab-id"));
         })
