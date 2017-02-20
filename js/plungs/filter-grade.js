@@ -69,7 +69,7 @@
             var li = document.createElement('li');
             $(li).addClass(className+"-li");
             li.setAttribute("data-li-level",level || 0);
-            li.setAttribute("data-tab-id",data[i].key || ("tab"+i));
+            li.setAttribute("data-tab-id",data[i].key);
             li.innerHTML=data[i].desc;
 
             if(data[i].nodeList && data[i].nodeList.length >0){

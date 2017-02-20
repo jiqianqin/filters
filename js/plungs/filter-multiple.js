@@ -54,7 +54,7 @@
         for(i=0, len = data.length; i<len; i++){
             var li = document.createElement('li');
             li.innerHTML=data[i].desc;
-            li.setAttribute("data-tab-id",data[i].key || ("tab"+i));
+            li.setAttribute("data-tab-id",data[i].key);
 
             var checkbox = document.createElement('span');
             $(checkbox).addClass("multiple-checkbox");

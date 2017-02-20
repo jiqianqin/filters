@@ -69,7 +69,7 @@
             var li = document.createElement('li');
             $(li).addClass(className+"-li");
             li.setAttribute("data-li-level",level || 0);
-            li.setAttribute("data-tab-id",data[i].key || ("tab"+i));
+            li.setAttribute("data-tab-id",data[i].key);
             li.innerHTML=data[i].desc;
 
             if(data[i].nodeList && data[i].nodeList.length >0){
@@ -230,7 +230,7 @@
         for(i=0, len = data.length; i<len; i++){
             var li = document.createElement('li');
             li.innerHTML=data[i].desc;
-            li.setAttribute("data-tab-id",data[i].key || ("tab"+i));
+            li.setAttribute("data-tab-id",data[i].key);
 
             var checkbox = document.createElement('span');
             $(checkbox).addClass("multiple-checkbox");
@@ -398,7 +398,7 @@
 
             self.options.selected && self.options.selected == data[i].key &&  $(li).addClass("active");
 
-            li.setAttribute("data-tab-id",data[i].key || ("tab"+i));
+            li.setAttribute("data-tab-id",data[i].key);
             li.innerHTML=data[i].desc;
 
             //绑定点击事件
@@ -592,7 +592,7 @@
         for(i=0, len = data.length; i<len; i++){
             var li = document.createElement('li');
 
-            li.setAttribute("data-tab-id",data[i].key || ("tab"+i));
+            li.setAttribute("data-tab-id",data[i].key);
             li.innerHTML="<span class='tagsDesc'>"+data[i].desc+"<span>";
 
             li.appendChild(self.tagsShow(data[i].nodeList,data[i].key));

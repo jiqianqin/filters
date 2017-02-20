@@ -46,7 +46,7 @@
 
             self.options.selected && self.options.selected == data[i].key &&  $(li).addClass("active");
 
-            li.setAttribute("data-tab-id",data[i].key || ("tab"+i));
+            li.setAttribute("data-tab-id",data[i].key);
             li.innerHTML=data[i].desc;
 
             //绑定点击事件

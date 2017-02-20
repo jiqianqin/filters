@@ -40,7 +40,7 @@
         for(i=0, len = data.length; i<len; i++){
             var li = document.createElement('li');
 
-            li.setAttribute("data-tab-id",data[i].key || ("tab"+i));
+            li.setAttribute("data-tab-id",data[i].key);
             li.innerHTML="<span class='tagsDesc'>"+data[i].desc+"<span>";
 
             li.appendChild(self.tagsShow(data[i].nodeList,data[i].key));
