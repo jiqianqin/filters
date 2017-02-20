@@ -133,11 +133,11 @@
                         self.nowLevel = 3 ;
                         self.initContent(self.thirdGradeData[key],self.nowLevel)
                     }
-                    self.options.clickHandle && self.options.clickHandle([self.secondKey,self.firstKey]);
+                    self.options.clickHandle && self.options.clickHandle([self.firstKey,self.secondKey]);
                     break;
                 case "3":
                     self.thirdKey =  {key:key,desc:desc} ;
-                    self.options.clickHandle && self.options.clickHandle([self.thirdKey,self.secondKey,self.firstKey]);
+                    self.options.clickHandle && self.options.clickHandle([self.firstKey,self.secondKey,self.thirdKey]);
                     break;
             }
         })
