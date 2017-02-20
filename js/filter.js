@@ -187,6 +187,7 @@
         selectAllTip:"全部",
         selectAllHandle:null,
         clickHandle:null, //点击事件
+        selected:null//选择的
     }
 
     function Plugin(element,options){
@@ -234,6 +235,10 @@
             var checkbox = document.createElement('span');
             $(checkbox).addClass("multiple-checkbox");
             li.appendChild(checkbox);
+
+            if(self.options.selected && self.options.selected.indexOf(data[i].key,0) != -1){
+                $(li).addClass('active');
+            }
 
             //绑定点击事件
             self.initBind(li);

@@ -1303,6 +1303,7 @@ $(document).ready(function(){
 
     $("#typeFilter").filterMultiple({
         data:mock.roomAmount,
+        selected:[1,2],
         comfirm:function(data){
             alert(data);
         },
