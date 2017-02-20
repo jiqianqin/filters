@@ -12,7 +12,8 @@
         placeholderHigh:"最高区间",
         sureBtn:"确定",
         clickHandle:null, //点击事件
-        comfirm:null
+        comfirm:null,
+        selected:null //若传回字符串,则为单选,若传回数组,则为自定义
     }
 
     function Plugin(element,options){
@@ -42,6 +43,8 @@
         // 动态添加数据
         for(i=0, len = data.length; i<len; i++){
             var li = document.createElement('li');
+
+            self.options.selected && self.options.selected == data[i].key &&  $(li).addClass("active");
 
             li.setAttribute("data-tab-id",data[i].key || ("tab"+i));
             li.innerHTML=data[i].desc;
@@ -117,6 +120,12 @@
         div.appendChild(sureBtn);
 
         this.element.appendChild(div);
+
+        if(self.options.selected instanceof Array){
+            $(inputLow).val(self.options.selected[0]);
+            $(inputHigh).val(self.options.selected[1]);
+            sureBtn.removeAttribute("disabled");
+        }
 
         $(sureBtn).on("click", function () {
             if(!check()){

@@ -1295,6 +1295,7 @@ $(document).ready(function(){
         settingTip:"自定义价格",
         placeholderLow:"最低价格",
         placeholderHigh:"最高价格",
+        selected:[100,200],
         comfirm:function(data){
             alert(JSON.stringify(data));
         }
