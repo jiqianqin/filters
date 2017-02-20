@@ -115,10 +115,11 @@
             $(content).parent().find("li").removeClass('active');
             $(content).addClass('active');
             var key = content.getAttribute("data-tab-id");
+            var desc = content.innerHTML;
             var liLevel=content.getAttribute("data-li-level");
             switch (liLevel){
                 case "1" :
-                    self.firstKey = key;
+                    self.firstKey = {key:key,desc:desc};
                     if(self.options.level > 1 && self.secondGradeData && self.secondGradeData[key] && self.secondGradeData[key].length > 0){
                         self.nowLevel = 2 ;
                         self.initContent(self.secondGradeData[key],self.nowLevel);
@@ -127,7 +128,7 @@
                     self.options.clickHandle && self.options.clickHandle([self.firstKey]);
                     break;
                 case "2":
-                    self.secondKey = key ;
+                    self.secondKey =  {key:key,desc:desc} ;
                     if( self.options.level > 2 && self.thirdGradeData && self.thirdGradeData[key] && self.thirdGradeData[key].length > 0){
                         self.nowLevel = 3 ;
                         self.initContent(self.thirdGradeData[key],self.nowLevel)
@@ -135,7 +136,7 @@
                     self.options.clickHandle && self.options.clickHandle([self.secondKey,self.firstKey]);
                     break;
                 case "3":
-                    self.thirdKey = key ;
+                    self.thirdKey =  {key:key,desc:desc} ;
                     self.options.clickHandle && self.options.clickHandle([self.thirdKey,self.secondKey,self.firstKey]);
                     break;
             }
